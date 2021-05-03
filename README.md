@@ -7,3 +7,7 @@
 
 ##3. User story map 
 >[https://miro.com/app/board/o9J_lG3Wl_E=/]
+
+##4. Trello
+>[https://trello.com/b/V7TUNL8r/tpe-metodologia-g10]
+
