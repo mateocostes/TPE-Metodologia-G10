@@ -11,3 +11,6 @@
 ##4. Trello
 >[https://trello.com/b/V7TUNL8r/tpe-metodologia-g10]
 
+##5. Criterio de Done
+>[https://docs.google.com/document/d/1thi9HbKr9dhPebmmNJaRflumzw0WUuf2xfG3UKmaiXM/edit?usp=sharing]
+
