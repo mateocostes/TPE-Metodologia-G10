@@ -1,0 +1,1 @@
+En esta carpeta irían los archivos del Sprint 2
