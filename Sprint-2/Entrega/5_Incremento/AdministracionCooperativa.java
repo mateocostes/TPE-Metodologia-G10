@@ -7,6 +7,7 @@ public class AdministracionCooperativa {
 	private ArrayList<Material> materiales;
 	private Criterio critAceptacion; //implementar
 	private boolean logueado;
+	private ArrayList<Cartonero> cartoneros;
 	
 	public AdministracionCooperativa(String direccion, Criterio crit, String usuario, String contrasenia) {
 		this.solicitudes= new ArrayList<Solicitud>();
@@ -86,5 +87,15 @@ public class AdministracionCooperativa {
 	
 	public void logIn(String usuario, String contra){
 		this.logueado=(usuario.equals(this.usuario)&&contra.equals(this.contrasenia));
+	}
+	
+	public void acopiarCartonero(Material mat, Float peso, int idCart) {
+		if (logueado)
+			for(Cartonero c: cartoneros) {
+				if(c.getIdCartonero()==idCart) {
+					c.acopiar(mat, peso);
+					break;
+				}
+			}
 	}
 }

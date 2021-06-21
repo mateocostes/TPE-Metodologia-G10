@@ -1,10 +1,12 @@
 import java.util.HashMap;
 
 public class Cartonero {
+	private int idCartonero;
 	private HashMap<Material, Float> acopiado;
 	
-	public Cartonero() {
+	public Cartonero(int id) {
 		this.acopiado=new HashMap<Material, Float>();
+		this.idCartonero=id;
 	}
 	
 	public void acopiar(Material mat, Float peso) {
@@ -13,4 +15,9 @@ public class Cartonero {
 		else
 			this.acopiado.put(mat, peso);
 	}
+
+	public int getIdCartonero() {
+		return idCartonero;
+	}
+
 }
