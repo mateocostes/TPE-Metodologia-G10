@@ -1,44 +1,51 @@
 import java.util.ArrayList;
 
 public class AdministracionCooperativa {
+	private String usuario, contrasenia;
 	private String direccionCooperativa;
 	private ArrayList<Solicitud> solicitudes;
 	private ArrayList<Material> materiales;
 	private Criterio critAceptacion; //implementar
+	private boolean logueado;
 	
-	public AdministracionCooperativa(String direccion, Criterio crit) {
+	public AdministracionCooperativa(String direccion, Criterio crit, String usuario, String contrasenia) {
 		this.solicitudes= new ArrayList<Solicitud>();
 		this.direccionCooperativa=direccion;
 		this.critAceptacion=crit;
 		this.materiales= new ArrayList<Material>();
+		this.usuario=usuario;
+		this.contrasenia=contrasenia;
+		this.logueado=false;
 	}
 
 	public ArrayList<Solicitud> mostrarListaSolicitudes() { //Tarea: devolver la lista de solicitudes
 		ArrayList<Solicitud> nuevaLista = new ArrayList<Solicitud>();
-		for (Solicitud s: this.solicitudes)
-			nuevaLista.add(s);
+		if (logueado) 
+			for (Solicitud s: this.solicitudes)
+				nuevaLista.add(s);
 		return nuevaLista;
 	}
 	
 	public void addMaterial(Material material){
-       if (!materiales.contains(material)) {
-           materiales.add(material);
-       }
-    }
+		if (logueado)
+			if (!materiales.contains(material))
+				materiales.add(material);
+	}
 
     public void removeMaterial(Material material){
-        if (materiales.contains(material)){
-            materiales.remove(material);
-        }
+    	if (logueado) 
+	        if (materiales.contains(material))
+	            materiales.remove(material);
     }
     
     public void modificarMaterial(String nombre, String descripcionEntrega, String descripcionMaterial) {
-    	for(Material mat: this.materiales) {
-    		if(mat.getNombre()==nombre) {
-    			mat.setDescripcionEntrega(descripcionEntrega);
-    			mat.setDescripcionMaterial(descripcionMaterial);
-    		}
-    	}
+    	if (logueado) 
+	    	for(Material mat: this.materiales) {
+	    		if(mat.getNombre()==nombre) {
+	    			mat.setDescripcionEntrega(descripcionEntrega);
+	    			mat.setDescripcionMaterial(descripcionMaterial);
+	    		}
+	    	}
     }
 
 	public boolean addSolicitud(Solicitud s) {
@@ -53,15 +60,12 @@ public class AdministracionCooperativa {
 	}
 	
 	public void removeSolicitud(Solicitud s) {
-		this.solicitudes.remove(s);
+		if (logueado) 
+			this.solicitudes.remove(s);
 	}
 	
 	public String getDireccionCooperativa() {
 		return direccionCooperativa;
-	}
-
-	public void setDireccionCooperativa(String direccionCooperativa) {
-		this.direccionCooperativa = direccionCooperativa;
 	}
 
 	public Criterio getCritAceptacion() {
@@ -69,7 +73,18 @@ public class AdministracionCooperativa {
 	}
 
 	public void setCritAceptacion(Criterio critAceptacion) {
-		this.critAceptacion = critAceptacion;
+		if (logueado) 
+			this.critAceptacion = critAceptacion;
 	}
 	
+	public void cambiarUsuarioYContrasenia(String usuario, String contrasenia) {
+		if (logueado) {
+			this.usuario=usuario;
+			this.contrasenia=contrasenia;
+		}
+	}
+	
+	public void logIn(String usuario, String contra){
+		this.logueado=(usuario.equals(this.usuario)&&contra.equals(this.contrasenia));
+	}
 }
