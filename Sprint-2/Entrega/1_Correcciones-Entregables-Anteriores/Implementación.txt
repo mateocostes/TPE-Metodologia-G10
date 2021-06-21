@@ -1,0 +1,3 @@
+En el sprint 1 la implementación fue subida en formato .zip, para este sprint se subirá el código
+en formato .java en diferentes momentos con las diferentes actualizaciones y versiones del mismo,
+aprovechando la funcionalidad del repositorio online
