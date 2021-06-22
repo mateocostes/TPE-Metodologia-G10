@@ -111,4 +111,16 @@ public class AdministracionCooperativa {
 						cartoneros.remove(cartonero);
 	}
 
+	public void modificarCartonero(String id, String categoriaVehiculo, String nombre, String direccion, int telefono) {
+		if (logueado)
+			for(Cartonero cartoneroActual: this.cartoneros) {
+				if(cartoneroActual.getIdCartonero()==id) {
+					cartoneroActual.setCategoriaVehiculo(categoriaVehiculo);
+					cartoneroActual.setNombre(nombre);
+					cartoneroActual.setDireccion(direccion);
+					cartoneroActual.setTelefono(telefono);
+				}
+			}
+	}
+
 }
