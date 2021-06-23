@@ -8,7 +8,7 @@ public class AdministracionCooperativa {
 	private Criterio critAceptacion; //implementar
 	private boolean logueado;
 	private ArrayList<Cartonero> cartoneros;
-
+	
 	public AdministracionCooperativa(String direccion, Criterio crit, String usuario, String contrasenia) {
 		this.solicitudes= new ArrayList<Solicitud>();
 		this.direccionCooperativa=direccion;
@@ -21,12 +21,12 @@ public class AdministracionCooperativa {
 
 	public ArrayList<Solicitud> mostrarListaSolicitudes() { //Tarea: devolver la lista de solicitudes
 		ArrayList<Solicitud> nuevaLista = new ArrayList<Solicitud>();
-		if (logueado)
+		if (logueado) 
 			for (Solicitud s: this.solicitudes)
 				nuevaLista.add(s);
 		return nuevaLista;
 	}
-
+	
 	public void addMaterial(Material material){
 		if (logueado)
 			if (!materiales.contains(material))
@@ -34,30 +34,18 @@ public class AdministracionCooperativa {
 	}
 
     public void removeMaterial(Material material){
-    	if (logueado)
+    	if (logueado) 
 	        if (materiales.contains(material))
 	            materiales.remove(material);
     }
-<<<<<<< HEAD
     
     public void modificarMaterial(Material material) {
-	   	for(Material mat: this.materiales) {
-	   		if(mat.equals(material)) {
-	   			mat.setDescripciones(material);
-					break;
-	   		}
-	   	}
-=======
-
-    public void modificarMaterial(String nombre, String descripcionEntrega, String descripcionMaterial) {
-    	if (logueado)
-	    	for(Material mat: this.materiales) {
-	    		if(mat.getNombre()==nombre) {
-	    			mat.setDescripcionEntrega(descripcionEntrega);
-	    			mat.setDescripcionMaterial(descripcionMaterial);
-	    		}
-	    	}
->>>>>>> bd4226033731ec8b33c57dc6dbbaa92652cc4fa0
+    	for(Material mat: this.materiales) {
+    		if(mat.equals(material)) {
+    			mat.setDescripciones(material);
+				break;
+    		}
+    	}
     }
 
 	public boolean addSolicitud(Solicitud s) {
@@ -70,12 +58,12 @@ public class AdministracionCooperativa {
 			this.solicitudes.add(s);
 		return true;
 	}
-
+	
 	public void removeSolicitud(Solicitud s) {
-		if (logueado)
+		if (logueado) 
 			this.solicitudes.remove(s);
 	}
-
+	
 	public String getDireccionCooperativa() {
 		return direccionCooperativa;
 	}
@@ -85,21 +73,21 @@ public class AdministracionCooperativa {
 	}
 
 	public void setCritAceptacion(Criterio critAceptacion) {
-		if (logueado)
+		if (logueado) 
 			this.critAceptacion = critAceptacion;
 	}
-
+	
 	public void cambiarUsuarioYContrasenia(String usuario, String contrasenia) {
 		if (logueado) {
 			this.usuario=usuario;
 			this.contrasenia=contrasenia;
 		}
 	}
-
+	
 	public void logIn(String usuario, String contra){
 		this.logueado=(usuario.equals(this.usuario)&&contra.equals(this.contrasenia));
 	}
-
+	
 	public void acopiarCartonero(Material mat, Float peso, int idCart) {
 		if (logueado)
 			for(Cartonero c: cartoneros) {
@@ -122,7 +110,7 @@ public class AdministracionCooperativa {
 						cartoneros.remove(cartonero);
 	}
 
-	public void modificarCartonero(String id, String categoriaVehiculo, String nombre, String direccion, int telefono) {
+	public void modificarCartonero(int id, String categoriaVehiculo, String nombre, String direccion, int telefono) {
 		if (logueado)
 			for(Cartonero cartoneroActual: this.cartoneros) {
 				if(cartoneroActual.getIdCartonero()==id) {
@@ -133,5 +121,4 @@ public class AdministracionCooperativa {
 				}
 			}
 	}
-
 }
