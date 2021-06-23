@@ -39,14 +39,13 @@ public class AdministracionCooperativa {
 	            materiales.remove(material);
     }
     
-    public void modificarMaterial(String nombre, String descripcionEntrega, String descripcionMaterial) {
-    	if (logueado) 
-	    	for(Material mat: this.materiales) {
-	    		if(mat.getNombre()==nombre) {
-	    			mat.setDescripcionEntrega(descripcionEntrega);
-	    			mat.setDescripcionMaterial(descripcionMaterial);
-	    		}
-	    	}
+    public void modificarMaterial(Material material) {
+	   	for(Material mat: this.materiales) {
+	   		if(mat.equals(material)) {
+	   			mat.setDescripciones(material);
+					break;
+	   		}
+	   	}
     }
 
 	public boolean addSolicitud(Solicitud s) {

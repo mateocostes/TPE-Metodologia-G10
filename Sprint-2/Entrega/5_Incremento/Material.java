@@ -38,4 +38,9 @@ public class Material {
 	public void setDescripcionMaterial(String descripcionMaterial) {
 		this.descripcionMaterial = descripcionMaterial;
 	}
+	
+	public void setDescripciones(Material material){
+		this.setDescripcionEntrega(material.getDescripcionEntrega());
+		this.setDescripcionMaterial(material.getDescripcionMaterial());
+	}
 }
