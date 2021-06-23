@@ -133,16 +133,16 @@ public class AdministracionCooperativa {
 		}
 	}
 
-	public void modificarCartonero(int id, String categoriaVehiculo, String nombre, String direccion, int telefono) {
-		if (logueado){
-			for(Cartonero cartoneroActual: this.cartoneros) {
-				if(cartoneroActual.getIdCartonero()==id) {
-					cartoneroActual.setCategoriaVehiculo(categoriaVehiculo);
-					cartoneroActual.setNombre(nombre);
-					cartoneroActual.setDireccion(direccion);
-					cartoneroActual.setTelefono(telefono);
-				}
-			}
-		}
-	}
+	public Cartonero devolverCartonero(int idCartonero){
+        if (logueado){
+            int pos = 0;
+            while (pos < cartoneros.size()){
+                if (cartoneros.get(pos).getIdCartonero() == idCartonero){
+                    return cartoneros.get(pos);
+                }
+                pos ++;
+            }
+        }
+        return null;
+    }
 }
