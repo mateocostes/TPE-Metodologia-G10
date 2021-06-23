@@ -20,9 +20,21 @@ public class Material {
         return descripcionEntrega;
     }
 
+    public String getDescripcionMaterial() {
+        return descripcionMaterial;
+    }
 
     public void setDescripcionEntrega(String descripcionEntrega) {
         this.descripcionEntrega = descripcionEntrega;
+    }
+
+    public void setDescripcionMaterial(String descripcionMaterial) {
+        this.descripcionMaterial = descripcionMaterial;
+    }
+
+    public Material getCopia(){
+        Material materialCopia = new Material(this.nombre, this.descripcionMaterial, this.descripcionEntrega);
+        return materialCopia;
     }
 
     @Override
@@ -31,16 +43,4 @@ public class Material {
         return (this.nombre == miMaterial.getNombre());
     }
 
-	public String getDescripcionMaterial() {
-		return descripcionMaterial;
-	}
-
-	public void setDescripcionMaterial(String descripcionMaterial) {
-		this.descripcionMaterial = descripcionMaterial;
-	}
-	
-	public void setDescripciones(Material material){
-		this.setDescripcionEntrega(material.getDescripcionEntrega());
-		this.setDescripcionMaterial(material.getDescripcionMaterial());
-	}
 }
