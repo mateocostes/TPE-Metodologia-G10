@@ -46,18 +46,15 @@ public class AdministracionCooperativa {
   }
 
 	public Material devolverMaterial(String nombre){
-        int pos = 0;
-        while (pos < materiales.size()){
-            if (materiales.get(pos).getNombre() == nombre){
-                if (logueado) {
+			if (logueado){
+					int pos = 0;
+        	while (pos < materiales.size()){
+            	if (materiales.get(pos).getNombre().equals(nombre)){
                     return materiales.get(pos);
-                }
-                else {
-                    return materiales.get(pos).getCopia();
-                }
-            }
-            pos ++;
-        }
+            	}
+            	pos ++;
+        	}
+			}
         return null;
     }
 
