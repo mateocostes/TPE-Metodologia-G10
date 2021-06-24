@@ -37,24 +37,24 @@ public class AdministracionCooperativa {
 		}
 	}
 
-  public void removeMaterial(Material material){
-    if (logueado) {
-	     if (materiales.contains(material)) {
-	         materiales.remove(material);
-			 }
+	public void removeMaterial(Material material){
+		if (logueado) {
+			if (materiales.contains(material)) {
+				materiales.remove(material);
+			}
 		}
-  }
+    }
 
 	public Material devolverMaterial(String nombre){
-			if (logueado){
-					int pos = 0;
-        	while (pos < materiales.size()){
-            	if (materiales.get(pos).getNombre().equals(nombre)){
-                    return materiales.get(pos);
-            	}
-            	pos ++;
-        	}
-			}
+		if (logueado){
+			int pos = 0;
+	    	while (pos < materiales.size()){
+	        	if (materiales.get(pos).getNombre().equals(nombre)){
+	                return materiales.get(pos);
+	        	}
+	        	pos ++;
+	    	}
+		}
         return null;
     }
 
