@@ -135,9 +135,9 @@ public class AdministracionCooperativa {
 
 	public void removeCartonero(Cartonero cartonero){
 		if (logueado){
-				if (cartoneros.contains(cartonero)){
-						cartoneros.remove(cartonero);
-				}
+			if (cartoneros.contains(cartonero)){
+				cartoneros.remove(cartonero);
+			}
 		}
 	}
 
