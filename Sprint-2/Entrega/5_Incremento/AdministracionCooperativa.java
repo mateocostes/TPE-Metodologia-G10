@@ -43,20 +43,20 @@ public class AdministracionCooperativa {
 				materiales.remove(material);
 			}
 		}
-    }
+    	}
 
 	public Material devolverMaterial(String nombre){
 		if (logueado){
 			int pos = 0;
-	    	while (pos < materiales.size()){
-	        	if (materiales.get(pos).getNombre().equals(nombre)){
-	                return materiales.get(pos);
-	        	}
-	        	pos ++;
-	    	}
+	    		while (pos < materiales.size()){
+	        		if (materiales.get(pos).getNombre().equals(nombre)){
+	                		return materiales.get(pos);
+	        		}
+	        		pos ++;
+	    		}
 		}
-        return null;
-    }
+        	return null;
+    	}
 
 	public boolean addSolicitud(Solicitud s) {
 		ArrayList<Material> matAux= s.getMateriales();
@@ -115,23 +115,23 @@ public class AdministracionCooperativa {
 	}
 
 	public void addCartonero(Cartonero cartonero){
-        if (logueado){
-            if (!cartoneros.contains(cartonero)){
-                boolean guardado = false;
-                int pos = 0;
-                while ((!guardado) && (pos < cartoneros.size())) {
-                    if (cartoneros.get(pos).getIdCartonero() > cartonero.getIdCartonero()) {
-                        cartoneros.add(pos, cartonero);
-                        guardado = true;
-                    }
-                    pos ++;
-                }
-                if (!guardado){
-                    cartoneros.add(cartonero);
-                }
-            }
-        }
-    }
+		if (logueado){
+		    if (!cartoneros.contains(cartonero)){
+			boolean guardado = false;
+			int pos = 0;
+			while ((!guardado) && (pos < cartoneros.size())) {
+			    if (cartoneros.get(pos).getIdCartonero() > cartonero.getIdCartonero()) {
+				cartoneros.add(pos, cartonero);
+				guardado = true;
+			    }
+			    pos ++;
+			}
+			if (!guardado){
+			    cartoneros.add(cartonero);
+			}
+		    }
+		}
+    	}
 
 	public void removeCartonero(Cartonero cartonero){
 		if (logueado){
@@ -142,15 +142,15 @@ public class AdministracionCooperativa {
 	}
 
 	public Cartonero devolverCartonero(int idCartonero){
-        if (logueado){
-            int pos = 0;
-            while (pos < cartoneros.size()){
-                if (cartoneros.get(pos).getIdCartonero() == idCartonero){
-                    return cartoneros.get(pos);
-                }
-                pos ++;
-            }
-        }
-        return null;
-    }
+		if (logueado){
+		    int pos = 0;
+		    while (pos < cartoneros.size()){
+			if (cartoneros.get(pos).getIdCartonero() == idCartonero){
+			    return cartoneros.get(pos);
+			}
+			pos ++;
+		    }
+		}
+		return null;
+	}
 }
