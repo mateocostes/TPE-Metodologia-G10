@@ -117,19 +117,8 @@ public class AdministracionCooperativa {
 	public void addCartonero(Cartonero cartonero){
 		if (logueado){
 		    if (!cartoneros.contains(cartonero)){
-			boolean guardado = false;
-			int pos = 0;
-			while ((!guardado) && (pos < cartoneros.size())) {
-			    if (cartoneros.get(pos).getIdCartonero() > cartonero.getIdCartonero()) {
-				cartoneros.add(pos, cartonero);
-				guardado = true;
-			    }
-			    pos ++;
-			}
-			if (!guardado){
 			    cartoneros.add(cartonero);
 			}
-		    }
 		}
     	}
 
